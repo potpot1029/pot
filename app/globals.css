@@ -31,6 +31,8 @@
   --color-prompt-dir: #36f9f6;
   --color-ok: #72f1b8;
   --color-steam: #b893ce;
+  /* synthweave.nvim gray, for inactive / unfocused ui */
+  --color-muted: #848bbd;
 
   --glow: 0 0 0.5em var(--color-brand);
 }
@@ -80,10 +82,17 @@ body {
   /* how solid the pane is: 0% fully see-through, 100% the column colour */
   --tint: 40%;
   --tint-layer: color-mix(in srgb, var(--background) var(--tint), transparent);
-  border: 0.5px solid var(--color-synthwave-cyan);
+  /* gray like an inactive terminal pane; cyan once hovered or focused */
+  border: 0.5px solid var(--color-muted);
+  transition: border-color 150ms ease;
   background:
     linear-gradient(var(--tint-layer), var(--tint-layer)), var(--grid),
     var(--background-outer);
   background-size: auto, var(--grid-size), auto;
   background-attachment: fixed;
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--color-synthwave-cyan);
+  }
 }

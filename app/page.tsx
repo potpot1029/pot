@@ -32,6 +32,12 @@ export default function Home() {
         <div className="flex flex-col items-center gap-6">
           <AvatarFlow />
           <div className="flex flex-col items-center gap-3">
+            <p className="flex flex-wrap items-baseline justify-center gap-x-2 font-mono">
+              <span className="text-lg">
+                Joey Chau
+              </span>
+              <span className="text-xs text-foreground/60">(aka. potpot)</span>
+            </p>
             {/* boot-log style status, like a systemd "[ OK ]" line */}
             <p className="flex items-center gap-2 font-mono text-sm">
               <span className="font-bold">

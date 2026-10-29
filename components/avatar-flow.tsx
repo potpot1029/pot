@@ -30,12 +30,13 @@ const SMART_COLORS = [
 // what comes out the right side, burning to ash
 const JUNK = [
   "lol",
-  "NaN",
   "idk",
   "¯\\_(ツ)_/¯",
   "meme.png",
   "zzz",
   "@grok is this true?",
+  "🫩",
+  "0知",
 ];
 // loose flakes of ash mixed in with the burning junk
 const FLAKE_COUNT = 4;
@@ -120,7 +121,7 @@ export function AvatarFlow() {
         width={160}
         height={160}
         preload
-        className={`${styles.avatar} size-40 rounded-full object-cover ring-2 ring-synthwave-cyan shadow-[0_0_24px_var(--color-synthwave-cyan)]`}
+        className={`${styles.avatar} size-40 rounded-full object-cover ring-2 ring-brand shadow-[0_0_24px_var(--color-brand)]`}
       />
     </div>
   );

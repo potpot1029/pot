@@ -77,7 +77,7 @@
   }
   45% {
     opacity: 0.8;
-    background: #848bbd;
+    background: var(--color-muted);
   }
   100% {
     opacity: 0;
@@ -106,7 +106,7 @@
   }
   50% {
     opacity: 0.75;
-    color: #848bbd;
+    color: var(--color-muted);
   }
   100% {
     opacity: 0;
