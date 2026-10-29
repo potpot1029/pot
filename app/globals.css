@@ -6,6 +6,13 @@
   --background: #161925;
   --background-outer: #0f1119;
   --foreground: #a2c7e5;
+
+  /* faint neutral grid on the outer background, shared by body and .terminal-window */
+  --grid-line: rgb(255 255 255 / 0.03);
+  --grid:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  --grid-size: 32px 32px, 32px 32px;
 }
 
 @theme inline {
@@ -41,15 +48,9 @@
 }
 
 body {
-  /* faint neutral grid behind the column so its transparency has something to show */
-  background:
-    linear-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.03) 1px, transparent 1px),
-    var(--background-outer);
-  background-size:
-    32px 32px,
-    32px 32px,
-    auto;
+  /* grid behind the column so its transparency has something to show */
+  background: var(--grid), var(--background-outer);
+  background-size: var(--grid-size), auto;
   background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-blex-sans), Arial, Helvetica, sans-serif;
@@ -68,4 +69,21 @@ body {
   .page-column {
     --fade: 3rem;
   }
+}
+
+/*
+ * terminal pane that shows the page background through the frosted column.
+ * css can't cut a hole in the column's own background, so this repaints the
+ * body's background, fixed to the viewport so the grid lines up with the real one.
+ */
+@utility terminal-window {
+  /* how solid the pane is: 0% fully see-through, 100% the column colour */
+  --tint: 40%;
+  --tint-layer: color-mix(in srgb, var(--background) var(--tint), transparent);
+  border: 0.5px solid var(--color-synthwave-cyan);
+  background:
+    linear-gradient(var(--tint-layer), var(--tint-layer)), var(--grid),
+    var(--background-outer);
+  background-size: auto, var(--grid-size), auto;
+  background-attachment: fixed;
 }

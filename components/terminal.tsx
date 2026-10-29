@@ -83,7 +83,7 @@ export function Terminal() {
 
   return (
     // translucent terminal window, like a Ghostty pane over the page
-    <div className="grow border-[0.5px] border-synthwave-cyan bg-black/10 bg-clip-padding px-5 pt-4 pb-1 backdrop-blur-sm">
+    <div className="terminal-window grow px-5 pt-4 pb-1">
       {/* git branch on the right, like starship's right prompt */}
       <div className="mb-1 flex items-center justify-between gap-4 font-mono text-sm">
         <Prompt>

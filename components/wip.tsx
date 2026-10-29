@@ -6,7 +6,7 @@ export function Wip({ name }: { name: string }) {
   return (
     <section className="flex grow flex-col gap-6">
       <h1 className="font-mono text-2xl font-bold"># {name}/</h1>
-      <div className="grow border-[0.5px] border-synthwave-cyan bg-black/10 bg-clip-padding px-5 py-4 font-mono text-sm backdrop-blur-sm">
+      <div className="terminal-window grow px-5 py-4 font-mono text-sm">
         <Prompt>
           <span>ls {name}/</span>
         </Prompt>
