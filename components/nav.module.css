@@ -1,0 +1,55 @@
+.header {
+  padding: 20px 0;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-blex-mono);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-synthwave-cyan);
+  /* tight inner glow plus a wider halo so it reads brighter than the links */
+  text-shadow:
+    0 0 0.15em var(--color-synthwave-cyan),
+    0 0 0.6em var(--color-synthwave-cyan);
+}
+
+/* text-shadow doesn't reach the svg, so glow the home icon separately */
+.logo svg {
+  filter: drop-shadow(0 0 0.15em var(--color-synthwave-cyan))
+    drop-shadow(0 0 0.4em var(--color-synthwave-cyan));
+}
+
+.nav {
+  /* equal side padding extends the underline while keeping the links centered on it */
+  padding-inline: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--color-synthwave-cyan);
+}
+
+.link {
+  color: var(--color-brand);
+  text-shadow: var(--glow);
+  transition:
+    color 150ms ease,
+    text-shadow 150ms ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-synthwave-pink);
+  text-shadow:
+    0 0 0.3em var(--color-synthwave-pink),
+    0 0 0.8em var(--color-synthwave-pink);
+}
+
+.link[aria-current="page"] {
+  color: var(--color-cyellow);
+  text-shadow: var(--glow);
+}
