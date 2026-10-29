@@ -5,6 +5,9 @@ export const LINKEDIN_URL =
 export const CODEFORCES_URL = "https://codeforces.com/profile/potpot_";
 export const EMAIL = "chaukinyi1029@gmail.com";
 
+export const NAME = "Joey Chau";
+export const ALIAS = "potpot";
+
 export const STATUS = "open to opportunities";
 export const LOCATION = "hong kong";
 export const TIMEZONE = "UTC+8";

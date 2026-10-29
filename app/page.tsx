@@ -6,11 +6,13 @@ import { MailIcon } from "@/components/icons/mail";
 import { PinIcon } from "@/components/icons/pin";
 import { Terminal } from "@/components/terminal";
 import {
+  ALIAS,
   CODEFORCES_URL,
   EMAIL,
   GITHUB_URL,
   LINKEDIN_URL,
   LOCATION,
+  NAME,
   STATUS,
   TIMEZONE,
 } from "@/lib/constants";
@@ -26,17 +28,18 @@ export default function Home() {
   return (
     <section className="flex grow flex-col gap-6">
       <h1 className="font-mono text-2xl font-bold">
-        <span className="sr-only">potpot · </span># home/
+        <span className="sr-only">
+          {NAME} ({ALIAS}) ·{" "}
+        </span>
+        # home/
       </h1>
       <div className="flex grow flex-col gap-16">
         <div className="flex flex-col items-center gap-6">
           <AvatarFlow />
           <div className="flex flex-col items-center gap-3">
             <p className="flex flex-wrap items-baseline justify-center gap-x-2 font-mono">
-              <span className="text-lg">
-                Joey Chau
-              </span>
-              <span className="text-xs text-foreground/60">(aka. potpot)</span>
+              <span className="text-lg">{NAME}</span>
+              <span className="text-xs text-foreground/60">(aka. {ALIAS})</span>
             </p>
             {/* boot-log style status, like a systemd "[ OK ]" line */}
             <p className="flex items-center gap-2 font-mono text-sm">

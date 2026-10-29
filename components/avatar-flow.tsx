@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { ALIAS, NAME } from "@/lib/constants";
 import { SYNTHWEAVE } from "@/lib/palette";
 import styles from "./avatar-flow.module.css";
 
@@ -117,7 +118,7 @@ export function AvatarFlow() {
       ))}
       <Image
         src="/cat_drooling.webp"
-        alt="potpot's avatar"
+        alt={`${NAME} (${ALIAS})'s avatar`}
         width={160}
         height={160}
         preload
