@@ -50,6 +50,6 @@
 }
 
 .link[aria-current="page"] {
-  color: var(--color-cyellow);
+  color: var(--color-yellow);
   text-shadow: var(--glow);
 }

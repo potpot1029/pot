@@ -10,7 +10,7 @@ export function Wip({ name }: { name: string }) {
         <Prompt>
           <span>ls {name}/</span>
         </Prompt>
-        <p className="mt-1 text-warn">
+        <p className="mt-1 text-yellow">
           ls: {name}/: work in progress, check back soon
         </p>
         <p className="mt-4 flex items-center gap-2">

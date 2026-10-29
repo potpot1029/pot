@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AvatarFlow } from "@/components/avatar-flow";
 import { CodeforcesIcon } from "@/components/icons/codeforces";
 import { GitHubIcon } from "@/components/icons/github";
 import { LinkedInIcon } from "@/components/icons/linkedin";
@@ -30,14 +30,7 @@ export default function Home() {
       </h1>
       <div className="flex grow flex-col gap-16">
         <div className="flex flex-col items-center gap-6">
-          <Image
-            src="/cat_drooling.webp"
-            alt="potpot's avatar"
-            width={160}
-            height={160}
-            preload
-            className="size-40 rounded-full object-cover ring-2 ring-synthwave-cyan shadow-[0_0_24px_var(--color-synthwave-cyan)]"
-          />
+          <AvatarFlow />
           <div className="flex flex-col items-center gap-3">
             {/* boot-log style status, like a systemd "[ OK ]" line */}
             <p className="flex items-center gap-2 font-mono text-sm">

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BranchIcon } from "@/components/icons/branch";
 import { Prompt } from "@/components/prompt";
+import { SYNTHWEAVE } from "@/lib/palette";
 
 const COMMAND = "neofetch";
 const START_DELAY_MS = 400;
@@ -32,18 +33,7 @@ const INFO = [
 ];
 
 // starship palette, shown as neofetch's color blocks
-// accent colors from my synthweave.nvim palette, plus the magenta override
-// from ~/.config/nvim/plugin/colorscheme.lua
-const PALETTE = [
-  "#fe4450", // red
-  "#f39237", // carrot
-  "#ffe347", // yellow
-  "#72f1b8", // green_bright
-  "#3bf4fb", // cyan
-  "#2ee2fa", // blue_bright
-  "#ff7edb", // pink
-  "#f222ff", // magenta
-];
+const PALETTE = Object.values(SYNTHWEAVE);
 
 export function Terminal() {
   const [typed, setTyped] = useState(0);
@@ -106,7 +96,7 @@ export function Terminal() {
             )}
           </span>
         </Prompt>
-        <p className="flex items-center gap-1 font-bold text-prompt-branch">
+        <p className="flex items-center gap-1 font-bold text-yellow">
           <BranchIcon />
           main
         </p>

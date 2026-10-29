@@ -1,10 +1,11 @@
 import { cacheLife } from "next/cache";
-import { ArrowIcon } from "./icons/arrow";
+import { CodeIcon } from "./icons/code";
+import { GitHubIcon } from "./icons/github";
 import { GITHUB_URL, SOURCE_URL } from "@/lib/constants";
 
 const links = [
-  { name: "github", href: GITHUB_URL },
-  { name: "source", href: SOURCE_URL },
+  { name: "github", href: GITHUB_URL, icon: GitHubIcon },
+  { name: "source", href: SOURCE_URL, icon: CodeIcon },
 ];
 
 export default async function Footer() {
@@ -23,15 +24,16 @@ export default async function Footer() {
           · this site is vibe coded
         </p>
         <ul className="flex gap-5">
-          {links.map(({ name, href }) => (
+          {links.map(({ name, href, icon: Icon }) => (
             <li key={name}>
               <a
-                className="flex items-center gap-1.5 text-brand transition-[color,text-shadow] [text-shadow:var(--glow)] hover:text-synthwave-pink hover:[text-shadow:0_0_0.3em_var(--color-synthwave-pink),0_0_0.8em_var(--color-synthwave-pink)]"
+                className="group flex items-center gap-1.5 text-brand transition-[color,text-shadow] [text-shadow:var(--glow)] hover:text-synthwave-pink hover:[text-shadow:0_0_0.3em_var(--color-synthwave-pink),0_0_0.8em_var(--color-synthwave-pink)]"
                 rel="noopener noreferrer"
                 target="_blank"
                 href={href}
               >
-                <ArrowIcon />
+                {/* text-shadow doesn't reach svgs, so glow the icon separately */}
+                <Icon className="size-3.5 transition-[filter] drop-shadow-[0_0_3px_var(--color-brand)] group-hover:drop-shadow-[0_0_4px_var(--color-synthwave-pink)]" />
                 {name}
               </a>
             </li>

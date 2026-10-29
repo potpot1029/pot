@@ -7,7 +7,8 @@ import { NAV_ITEMS } from "@/lib/constants";
 import styles from "./nav.module.css";
 
 function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  // match the section and its children, but not e.g. /postscript for /posts
+  return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 }
 
 export function Navbar() {
@@ -18,24 +19,20 @@ export function Navbar() {
         <HomeIcon />
         /pot
       </Link>
-      <nav className={`${styles.nav} ml-auto flex`} id="nav">
-        <div className="w-full">
-          <div className="flex space-x-4">
-            {NAV_ITEMS.map(({ href: path, name }) => {
-              const active = isActive(pathname, path);
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  aria-current={active ? "page" : undefined}
-                  className={styles.link}
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+      <nav className={`${styles.nav} ml-auto flex space-x-4`}>
+        {NAV_ITEMS.map(({ href: path, name }) => {
+          const active = isActive(pathname, path);
+          return (
+            <Link
+              key={path}
+              href={path}
+              aria-current={active ? "page" : undefined}
+              className={styles.link}
+            >
+              {name}
+            </Link>
+          );
+        })}
       </nav>
     </header>
   );

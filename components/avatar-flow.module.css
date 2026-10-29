@@ -1,0 +1,122 @@
+.stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* room for particles above/below the avatar; clip them at the column edges */
+  padding-block: 24px;
+  overflow: hidden;
+}
+
+.avatar {
+  position: relative;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  opacity: 0;
+  animation-iteration-count: infinite;
+  animation-delay: var(--delay);
+  animation-duration: var(--dur);
+}
+
+/* text particles (smart and junk) */
+.label {
+  font-family: var(--font-blex-mono);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* smart-sounding stuff drifts in from the left and shrinks into the avatar */
+.smart {
+  color: var(--color);
+  text-shadow: 0 0 0.5em var(--color);
+  animation-name: absorb;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.6);
+}
+
+@keyframes absorb {
+  0% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1);
+  }
+  20% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+/* ash flakes leave the right edge, darken, and drift away */
+.ash {
+  width: var(--size);
+  height: var(--size);
+  animation-name: burn;
+  animation-timing-function: ease-out;
+}
+
+@keyframes burn {
+  0% {
+    opacity: 0;
+    background: #c8cbe0;
+    transform: translate(60px, var(--y0)) rotate(0deg);
+  }
+  10% {
+    opacity: 0.9;
+    background: #c8cbe0;
+  }
+  45% {
+    opacity: 0.8;
+    background: #848bbd;
+  }
+  100% {
+    opacity: 0;
+    background: #4a4e69;
+    transform: translate(var(--x), var(--y)) rotate(var(--spin));
+  }
+}
+
+/* useless junk leaves the right edge in greys and fades out like ash */
+.junk {
+  /* also drains colour from emoji like the pizza */
+  filter: grayscale(1);
+  animation-name: burn-text;
+  animation-timing-function: ease-out;
+}
+
+@keyframes burn-text {
+  0% {
+    opacity: 0;
+    color: #c8cbe0;
+    transform: translate(40px, calc(-50% + var(--y0))) rotate(0deg);
+  }
+  12% {
+    opacity: 0.9;
+    color: #c8cbe0;
+  }
+  50% {
+    opacity: 0.75;
+    color: #848bbd;
+  }
+  100% {
+    opacity: 0;
+    color: #4a4e69;
+    transform: translate(var(--x), calc(-50% + var(--y))) rotate(var(--spin));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    display: none;
+  }
+}

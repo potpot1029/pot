@@ -1,4 +1,4 @@
-export function MailIcon() {
+export function MailIcon({ className = "size-5" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -7,7 +7,7 @@ export function MailIcon() {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-5"
+      className={className}
       aria-hidden
     >
       <rect x="2" y="4" width="20" height="16" rx="2" />
