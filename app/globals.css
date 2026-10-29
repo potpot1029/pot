@@ -12,10 +12,17 @@
   --font-sans: var(--font-blex-mono);
   --font-mono: var(--font-blex-mono);
 
-  --color-brand: #ff00ff;
+  --color-brand: #f222ff;
   --color-cyellow: #ffff00;
   --color-synthwave-cyan: #00ffff;
   --color-synthwave-pink: #ff79c6;
+
+  /* starship / synthweave.nvim accents */
+  --color-prompt-dir: #36f9f6;
+  --color-prompt-branch: #f3e70f;
+  --color-ok: #72f1b8;
+  --color-warn: #ffe347;
+  --color-steam: #b893ce;
 
   --glow: 0 0 0.5em var(--color-brand);
 }

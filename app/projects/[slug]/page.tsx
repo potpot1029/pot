@@ -22,10 +22,8 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
   if (!project) notFound();
 
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        {project.title}
-      </h1>
+    <section className="flex flex-col gap-6">
+      <h1 className="font-mono text-2xl font-bold"># {project.title}</h1>
       <p>{project.description}</p>
     </section>
   );

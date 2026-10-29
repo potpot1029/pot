@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // don't advertise the framework in an X-Powered-By header
+  poweredByHeader: false,
   /* config options here */
   experimental: {
     agentFeedback: true,

@@ -18,12 +18,9 @@ export function Navbar() {
         <HomeIcon />
         /pot
       </Link>
-      <nav
-        className={`${styles.nav} ml-auto flex justify-between items-start relative px-0 fade md:overflow-auto scroll-pr-6 md:relative`}
-        id="nav"
-      >
-        <div className="w-full items-center">
-          <section className="flex space-x-4">
+      <nav className={`${styles.nav} ml-auto flex`} id="nav">
+        <div className="w-full">
+          <div className="flex space-x-4">
             {NAV_ITEMS.map(({ href: path, name }) => {
               const active = isActive(pathname, path);
               return (
@@ -37,7 +34,7 @@ export function Navbar() {
                 </Link>
               );
             })}
-          </section>
+          </div>
         </div>
       </nav>
     </header>

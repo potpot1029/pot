@@ -18,8 +18,9 @@ export default async function Footer() {
         <p className="text-foreground/70">
           © {new Date().getFullYear()}{" "}
           <span className="font-bold text-synthwave-cyan [text-shadow:0_0_0.5em_var(--color-synthwave-cyan)]">
-            pot/
-          </span>
+            potpot
+          </span>{" "}
+          · this site is vibe coded
         </p>
         <ul className="flex gap-5">
           {links.map(({ name, href }) => (

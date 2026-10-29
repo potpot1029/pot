@@ -20,7 +20,7 @@ const BlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "pot/",
+  title: "/pot",
   description: "a personal website",
 };
 
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div className="page-column max-w-4xl flex flex-col mx-auto min-h-screen">
             <main className="mx-(--fade) flex flex-col grow">
               <Navbar />
-              <div className="grow">{children}</div>
+              <div className="flex grow flex-col">{children}</div>
               <Footer />
             </main>
           </div>
